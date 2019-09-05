@@ -42,6 +42,15 @@ class Plot:
         plt.savefig("plots/t_energy.png")
         plt.show()
 
-    def plot_t_theta_energy(self):
-        pass
+    def plot_theta_omega(self): # phase space plot
+        for i in range(self.size()):
+            data_i = self.data[i]
+            plt.plot(data_i.theta, data_i.omega, label=data_i.name)
+        plt.xlabel('theta [radians]')
+        plt.ylabel('omega [radians/s]')
+        plt.legend()
+        if not os.path.exists("plots"):
+            os.mkdir("plots")
+        plt.savefig("plots/theta_omega.png")
+        plt.show()
 

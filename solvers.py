@@ -18,7 +18,7 @@ def analytic(theta0, omega0, step=0.1, stop=10):
     theta = theta0*np.sin(O*t + phi)
     omega = theta0*O*np.cos(O*t + phi)
     e = 0.5 * m * l * l * (omega ** 2 + (g / l) * theta ** 2)
-    return Solution(time=t, theta=theta, energy=e,  name="analytic")
+    return Solution(t, theta, omega, e, name="analytic")
 
 def simple_euler(theta0, omega0, step=0.1, stop=10, start=0):
     """
@@ -39,7 +39,7 @@ def simple_euler(theta0, omega0, step=0.1, stop=10, start=0):
         theta[i + 1] = theta[i] + omega[i]*step
 
     e = 0.5*m*l*l*(omega**2 + (g/l)*theta**2)
-    return Solution(time=t, theta=theta, energy=e, name="simple_euler")
+    return Solution(t, theta, omega, e, name="simple_euler")
 
 
 def euler_cromer(theta0, omega0, step=0.1, stop=10, start=0):
@@ -60,7 +60,7 @@ def euler_cromer(theta0, omega0, step=0.1, stop=10, start=0):
         omega[i + 1] = omega[i] - (g/l)*theta[i]*step
         theta[i + 1] = theta[i] + omega[i+1]*step
     e = 0.5*m*l*l*(omega**2 + (g/l)*theta**2)
-    return Solution(time=t, theta=theta, energy=e, name="euler_cromer")
+    return Solution(t, theta, omega, e, name="euler_cromer")
 
 def runge_kutta(_):
     pass
