@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import os
 
 class Plot:
     def __init__(self, element=None):
@@ -25,7 +25,23 @@ class Plot:
         plt.xlabel('time [s]')
         plt.ylabel('theta [radians]')
         plt.legend()
+        if not os.path.exists("plots"):
+            os.mkdir("plots")
+        plt.savefig("plots/t_theta.png")
         plt.show()
 
     def plot_t_energy(self):
+        for i in range(self.size()):
+            data_i = self.data[i]
+            plt.plot(data_i.time, data_i.energy, label=data_i.name)
+        plt.xlabel('time [s]')
+        plt.ylabel('energy [J]')
+        plt.legend()
+        if not os.path.exists("plots"):
+            os.mkdir("plots")
+        plt.savefig("plots/t_energy.png")
+        plt.show()
+
+    def plot_t_theta_energy(self):
         pass
+

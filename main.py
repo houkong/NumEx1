@@ -12,3 +12,4 @@ _analytic = analytic(THETA0, OMEGA0, step=STEP)
 
 plot = Plot(_simple_euler) + Plot(_euler_cromer) + Plot(_analytic)
 plot.plot_t_theta()
+plot.plot_t_energy()
