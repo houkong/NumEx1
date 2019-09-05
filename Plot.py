@@ -8,6 +8,7 @@ class Plot:
         '''
         self.Data = Data
 
+
     def theta_energy(self, title=""):
         f, ax1 = plt.subplots()
         color = 'tab:red'
