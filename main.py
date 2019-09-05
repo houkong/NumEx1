@@ -1,13 +1,14 @@
 from solvers import*
 from Plot import*
 
-_simple_euler = simple_euler(0.2, 0, step=0.01)
-_euler_cromer = euler_cromer(0.2, 0, step=0.01)
-_analytic = analytic(0.2, 0, step=0.01)
-_runge_kutta = runge_kutta(_)
 
+THETA0 = 0.2
+OMEGA0 = 0
+STEP = 0.1
 
+_simple_euler = simple_euler(THETA0, OMEGA0, step=STEP)
+_euler_cromer = euler_cromer(THETA0, OMEGA0, step=STEP)
+_analytic = analytic(THETA0, OMEGA0, step=STEP)
 
-Plot(_simple_euler).theta_energy()
-Plot(_euler_cromer).theta_energy()
-Plot(_analytic).theta()
+plot = Plot(_simple_euler) + Plot(_euler_cromer) + Plot(_analytic)
+plot.plot_t_theta()
