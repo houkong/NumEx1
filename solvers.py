@@ -62,5 +62,6 @@ def euler_cromer(theta0, omega0, step=0.1, stop=10, start=0):
     e = 0.5*m*l*l*(omega**2 + (g/l)*theta**2)
     return Solution(t, theta, omega, e, name="euler_cromer")
 
-def runge_kutta(_):
+
+def runge_kutta(theta0, omega0, step=0.1, stop=10, start=0):
     pass

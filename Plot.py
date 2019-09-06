@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import os
 
+
 class Plot:
     def __init__(self, element=None):
         self.data = []
