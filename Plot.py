@@ -5,6 +5,7 @@ import os
 class Plot:
     def __init__(self, element=None):
         self.data = []
+        self.title = ""
         if element:
             self.add(element)
 
