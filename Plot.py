@@ -31,7 +31,8 @@ class Plot:
             plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
-        plt.savefig("plots/t_theta.png")
+        path = "plots/" + self.title if self.title else "plots/theta_omega.png"
+        plt.savefig(path)
         plt.show()
 
     def plot_t_energy(self):
@@ -45,7 +46,8 @@ class Plot:
             plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
-        plt.savefig("plots/t_energy.png")
+        path = "plots/" + self.title if self.title else "plots/theta_omega.png"
+        plt.savefig(path)
         plt.show()
 
     def plot_theta_omega(self): # phase space plot
@@ -59,6 +61,7 @@ class Plot:
             plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
-        plt.savefig("plots/theta_omega.png")
+        path = "plots/" + self.title if self.title else "plots/theta_omega.png"
+        plt.savefig(path)
         plt.show()
 

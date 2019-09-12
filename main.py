@@ -4,12 +4,16 @@ from Plot import*
 
 THETA0 = 0.2
 OMEGA0 = 0
+START = 0
+STOP = 10
 STEP = 0.1
 
-_simple_euler = simple_euler(THETA0, OMEGA0, step=STEP)
-_euler_cromer = euler_cromer(THETA0, OMEGA0, step=STEP)
-_analytic = analytic(THETA0, OMEGA0, step=STEP)
-_runge_kutta = rk4(THETA0, OMEGA0, step=STEP)
+
+_simple_euler = simple_euler(THETA0, OMEGA0, start=START, stop=STOP, step=STEP)
+_euler_cromer = euler_cromer(THETA0, OMEGA0, start=START, stop=STOP, step=STEP)
+_analytic = analytic(THETA0, OMEGA0, stop=STOP, step=STEP)
+_runge_kutta = rk4(THETA0, OMEGA0, start=START, stop=STOP, step=STEP)
+
 
 plot = Plot(_simple_euler) + Plot(_euler_cromer) + Plot(_analytic) + Plot(_runge_kutta)
 plot.title = "t-theta"
