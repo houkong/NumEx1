@@ -5,7 +5,7 @@ import os
 class Plot:
     def __init__(self, element=None):
         self.data = []
-        self.title = ""
+        self.title = None
         if element:
             self.add(element)
 
@@ -27,6 +27,8 @@ class Plot:
         plt.xlabel('time [s]')
         plt.ylabel('theta [radians]')
         plt.legend()
+        if self.title:
+            plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
         plt.savefig("plots/t_theta.png")
@@ -39,6 +41,8 @@ class Plot:
         plt.xlabel('time [s]')
         plt.ylabel('energy [J]')
         plt.legend()
+        if self.title:
+            plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
         plt.savefig("plots/t_energy.png")
@@ -51,6 +55,8 @@ class Plot:
         plt.xlabel('theta [radians]')
         plt.ylabel('omega [radians/s]')
         plt.legend()
+        if self.title:
+            plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
         plt.savefig("plots/theta_omega.png")
