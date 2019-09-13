@@ -43,6 +43,7 @@ class Plot:
     def plot_t_energy(self):
         for i in range(self.size()):
             data_i = self.data[i]
+            assert len(data_i.time) == len(data_i.energy)
             plt.plot(data_i.time, data_i.energy, label=data_i.name)
         plt.xlabel('time [s]')
         plt.ylabel('energy [J]')
@@ -61,6 +62,7 @@ class Plot:
     def plot_theta_omega(self): # phase space plot
         for i in range(self.size()):
             data_i = self.data[i]
+            assert len(data_i.theta) == len(data_i.omega)
             plt.plot(data_i.theta, data_i.omega, label=data_i.name)
         plt.xlabel('theta [radians]')
         plt.ylabel('omega [radians/s]')
