@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import os
 
+SHOW = False
 
 class Plot:
     def __init__(self, element=None):
@@ -23,6 +24,7 @@ class Plot:
     def plot_t_theta(self):
         for i in range(self.size()):
             data_i = self.data[i]
+            assert len(data_i.time) == len(data_i.theta)
             plt.plot(data_i.time, data_i.theta, label=data_i.name)
         plt.xlabel('time [s]')
         plt.ylabel('theta [radians]')
@@ -31,9 +33,12 @@ class Plot:
             plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
-        path = "plots/" + self.title if self.title else "plots/theta_omega.png"
+        path = "plots/t_theta_" + self.title if self.title else "plots/t_theta.png"
         plt.savefig(path)
-        plt.show()
+        if SHOW:
+            plt.show()
+        else:
+            plt.clf()
 
     def plot_t_energy(self):
         for i in range(self.size()):
@@ -46,9 +51,12 @@ class Plot:
             plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
-        path = "plots/" + self.title if self.title else "plots/theta_omega.png"
+        path = "plots/t_energy_" + self.title if self.title else "plots/t_energy.png"
         plt.savefig(path)
-        plt.show()
+        if SHOW:
+            plt.show()
+        else:
+            plt.clf()
 
     def plot_theta_omega(self): # phase space plot
         for i in range(self.size()):
@@ -61,7 +69,9 @@ class Plot:
             plt.title(self.title)
         if not os.path.exists("plots"):
             os.mkdir("plots")
-        path = "plots/" + self.title if self.title else "plots/theta_omega.png"
+        path = "plots/theta_omega_" + self.title if self.title else "plots/theta_omega.png"
         plt.savefig(path)
-        plt.show()
-
+        if SHOW:
+            plt.show()
+        else:
+            plt.clf()
